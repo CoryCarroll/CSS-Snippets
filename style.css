@@ -1,0 +1,155 @@
+:root{
+    --pinkish:#e866ec;
+    --outer-space: #33393f;
+    --light-blue: #2aefcb;
+    --gin: #e0eae4;
+}
+
+::selection {
+  background-color: var(--light-blue);
+  color: var(--outer-space);
+}
+
+html{
+  font-size: 62.5%;
+}
+
+code {
+  font-family: monospace;
+}
+
+body {
+  background-color: var(--outer-space);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.75rem;
+  line-height: 1.5;
+  color: var(--gin);
+    
+}
+
+main {
+  width: 96%;
+  margin: 2rem auto;
+}
+  
+header {
+  color: var(--gin);
+  text-align: center;
+  width: 96%;
+  margin: 0 auto;
+  padding: 2.5rem;
+}
+
+.title {
+  color: var(--pinkish);
+}
+
+.card-header {
+  color: var(--pinkish);
+  border-style: solid;
+  border-radius: 5px 5px 5px 5px;
+  border-color: var(--gin);
+}
+
+.card-column {
+  flex: 1 0 100%;
+  padding: 1.5rem;
+  transition: flex-basis 500ms linear;
+  margin-bottom: 1.5rem;
+}
+
+.card-body {
+    color: var(--pinkish);
+}
+
+.code-block {
+  color: var(--gin);
+}
+
+.snippet {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding:20px;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  justify-content: center;  
+}
+
+.code-card pre {
+    /* set styles to make it so code wraps in <pre> instead of overflowing */
+    white-space: pre-wrap;
+    overflow: auto;
+    tab-size: 4;
+    padding: 1.2rem 1rem;
+    color: var(--gin);
+    border-radius: 8px;
+    /* use linear-gradient() function to create a fading background  */
+    background-image: linear-gradient(
+      rgba(232, 102, 236, 0.3) 0%,
+      rgba(232, 102, 236, 0.6) 100%
+    );
+    display: flex;
+    align-items: center;
+  }
+
+.code-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100%;
+    padding: 2rem;
+    color: var(--pinkish);
+    outline: 2px dashed var(--gin);
+    outline-offset: -2px;
+    transition: all 0.5s ease-in-out;
+}
+
+.code-card .card-header {
+    position: relative;
+    margin: -4rem 0 1.5rem 0;
+    padding: 0.5rem 1rem;
+    background-color: var(--outer-space);
+    color: var(--heliotrope);
+    border: 2px solid var(--gin);
+    border-radius: 8px;
+    transition: all 0.5s ease-in-out;
+}
+
+.code-card:hover,
+.code-card:hover .card-header {
+box-shadow: inset 0px 0px 8px var(--pinkish), 0 0 15px var(--pinkish);
+}
+
+.code-card pre:active {
+  user-select: all;
+}
+
+.code-card .code-block {
+    flex-grow: 1;
+  }
+
+  
+@media screen and (min-width: 768px) {
+    /* on tablets, set columns to only be 50% of the width and not grow */
+    .card-column {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  
+    /* select the last child to grow to full width if it has space to grow */
+    .card-column:last-child {
+      flex-grow: 1;
+    }
+  }
+  
+@media screen and (min-width: 992px) {
+    header {
+      width: 75%;
+    }
+  
+    .card-column {
+      flex: 0 0 33.333%;
+      max-width: 33.333%;
+    }
+  }
